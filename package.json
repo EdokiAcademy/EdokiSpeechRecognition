@@ -1,0 +1,23 @@
+{
+  "name": "com.edoki.speechrecognition",
+  "version": "1.0.0",
+  "displayName": "Speech Recognition",
+  "description": "Speech Recognition for Edoki",
+  "unity": "2021.3",
+  "unityRelease": "11f1",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "dependencies": {
+ },
+ "keywords": [
+    "speech recognition",
+    "speech to text",
+    "text to speech"
+  ],
+  "author": {
+    "name": "Edoki",
+    "email": "brett@edokiacademy.com",
+    "url": "https://www.unity3d.com"
+  }
+}
