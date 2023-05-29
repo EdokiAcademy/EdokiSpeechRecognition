@@ -15,10 +15,10 @@ public class BuildPostProcessor
             // Read.
             string projectPath = PBXProject.GetPBXProjectPath(path);
             PBXProject project = new PBXProject();
-            project.ReadFromString(File.ReadAllText(projectPath));
+            project.ReadFromFile(projectPath);
             
-            string targetGUID = project.GetUnityFrameworkTargetGuid();
-
+            var targetGUID = project.GetUnityFrameworkTargetGuid();
+            
             AddFrameworks(project, targetGUID);
             
             var plistPath = Path.Combine(path, "Info.plist");
@@ -28,7 +28,7 @@ public class BuildPostProcessor
             plist.WriteToFile(plistPath);
 
             // Write.
-            File.WriteAllText(projectPath, project.WriteToString());
+            project.WriteToFile(projectPath);
         }
     }
 
