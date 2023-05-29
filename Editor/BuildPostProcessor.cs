@@ -16,12 +16,9 @@ public class BuildPostProcessor
             string projectPath = PBXProject.GetPBXProjectPath(path);
             PBXProject project = new PBXProject();
             project.ReadFromString(File.ReadAllText(projectPath));
-#if UNITY_2019_3_OR_NEWER
-            string targetGUID = project.GetUnityMainTargetGuid();
-#else
-            string targetName = PBXProject.GetUnityTargetName();
-            string targetGUID = project.TargetGuidByName(targetName);
-#endif
+            
+            string targetGUID = proj.GetUnityFrameworkTargetGuid();
+
             AddFrameworks(project, targetGUID);
             
             var plistPath = Path.Combine(path, "Info.plist");
