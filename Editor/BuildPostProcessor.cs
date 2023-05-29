@@ -17,7 +17,7 @@ public class BuildPostProcessor
             PBXProject project = new PBXProject();
             project.ReadFromString(File.ReadAllText(projectPath));
             
-            string targetGUID = proj.GetUnityFrameworkTargetGuid();
+            string targetGUID = project.GetUnityFrameworkTargetGuid();
 
             AddFrameworks(project, targetGUID);
             
