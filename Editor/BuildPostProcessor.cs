@@ -25,6 +25,7 @@ public class BuildPostProcessor
             var plist = new PlistDocument();
             plist.ReadFromFile(plistPath);
             plist.root.SetString("NSSpeechRecognitionUsageDescription", "This app needs access to Speech Recognition");
+            plist.root.SetString("NSMicrophoneUsageDescription", "Used for Speech Recognition");
             plist.WriteToFile(plistPath);
 
             // Write.
