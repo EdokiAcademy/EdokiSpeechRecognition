@@ -1,0 +1,17 @@
+{
+    "name": "edoki.speechrecognition.sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f43bb0db5e9b2aa44afa0434120d9bfe",
+        "GUID:808dc31891fb540458c8897c4221c45b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

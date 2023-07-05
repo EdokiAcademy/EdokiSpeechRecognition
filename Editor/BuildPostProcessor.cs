@@ -15,23 +15,21 @@ public class BuildPostProcessor
             // Read.
             string projectPath = PBXProject.GetPBXProjectPath(path);
             PBXProject project = new PBXProject();
-            project.ReadFromString(File.ReadAllText(projectPath));
-#if UNITY_2019_3_OR_NEWER
-            string targetGUID = project.GetUnityMainTargetGuid();
-#else
-            string targetName = PBXProject.GetUnityTargetName();
-            string targetGUID = project.TargetGuidByName(targetName);
-#endif
+            project.ReadFromFile(projectPath);
+            
+            var targetGUID = project.GetUnityFrameworkTargetGuid();
+            
             AddFrameworks(project, targetGUID);
             
             var plistPath = Path.Combine(path, "Info.plist");
             var plist = new PlistDocument();
             plist.ReadFromFile(plistPath);
             plist.root.SetString("NSSpeechRecognitionUsageDescription", "This app needs access to Speech Recognition");
+            plist.root.SetString("NSMicrophoneUsageDescription", "Used for Speech Recognition");
             plist.WriteToFile(plistPath);
 
             // Write.
-            File.WriteAllText(projectPath, project.WriteToString());
+            project.WriteToFile(projectPath);
         }
     }
 
